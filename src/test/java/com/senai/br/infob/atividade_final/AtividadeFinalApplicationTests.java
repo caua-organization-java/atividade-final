@@ -1,0 +1,13 @@
+package com.senai.br.infob.atividade_final;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AtividadeFinalApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
