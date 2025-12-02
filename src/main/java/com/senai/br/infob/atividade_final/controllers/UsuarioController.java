@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.br.infob.atividade_final.models.Usuario;
+import com.senai.br.infob.atividade_final.services.UsuarioService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -17,16 +18,16 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 public class UsuarioController {
 
     @Autowired
-    public UsuarioService usaurioService;
+    public UsuarioService usuarioService;
 
     @PostMapping("/cadastro")
     public Usuario cadastro(@RequestBody Usuario usuario) {
-        return UsuarioService.cadastro(usuario);
+        return usuarioService.cadastro(usuario);
     }
 
     @PostMapping("/login")
     public String login(@RequestParam String email, String senha) {
-        return UsuarioService.login(email,senha);
+        return usuarioService.login(email,senha);
 
     }
 
