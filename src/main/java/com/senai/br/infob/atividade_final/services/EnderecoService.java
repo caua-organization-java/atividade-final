@@ -12,7 +12,10 @@ public class EnderecoService {
     @Autowired
     public EnderecoRepository enderecoRepository;
 
-    
+    public Endereco cadastro(Endereco endereco) {
+        return enderecoRepository.save(endereco);
+    }
+
     public Endereco buscar(Integer id) {
         return enderecoRepository.findById(id).get();
     }

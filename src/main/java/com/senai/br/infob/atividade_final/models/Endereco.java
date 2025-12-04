@@ -40,14 +40,16 @@ public class Endereco {
     private String referência;
 
     @ManyToOne
-    @JoinColumn(name= "endereco_id")
-    private Endereco endereco;
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
 
     public Endereco() {
     }
 
+
     public Endereco(Integer id, String logradouro, String localidade, String cep, String numero, String complemento,
-            String bairro, String referência, Endereco endereco) {
+            String bairro, String referência, Usuario usuario) {
         this.id = id;
         this.logradouro = logradouro;
         this.localidade = localidade;
@@ -56,79 +58,97 @@ public class Endereco {
         this.complemento = complemento;
         this.bairro = bairro;
         this.referência = referência;
-        this.endereco = endereco;
+        this.usuario = usuario;
     }
+
 
     public Integer getId() {
         return id;
     }
 
+
     public void setId(Integer id) {
         this.id = id;
     }
+
 
     public String getLogradouro() {
         return logradouro;
     }
 
+
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
+
 
     public String getLocalidade() {
         return localidade;
     }
 
+
     public void setLocalidade(String localidade) {
         this.localidade = localidade;
     }
+
 
     public String getCep() {
         return cep;
     }
 
+
     public void setCep(String cep) {
         this.cep = cep;
     }
+
 
     public String getNumero() {
         return numero;
     }
 
+
     public void setNumero(String numero) {
         this.numero = numero;
     }
+
 
     public String getComplemento() {
         return complemento;
     }
 
+
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
+
 
     public String getBairro() {
         return bairro;
     }
 
+
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
+
 
     public String getReferência() {
         return referência;
     }
 
+
     public void setReferência(String referência) {
         this.referência = referência;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     
