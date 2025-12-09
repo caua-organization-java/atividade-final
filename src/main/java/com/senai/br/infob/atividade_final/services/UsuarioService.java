@@ -12,13 +12,6 @@ public class UsuarioService {
     @Autowired
     public UsuarioRepository usuarioRepository;
 
-    public String login(String email, String senha) {
-        Usuario usuario = usuarioRepository.findByEmail(email);
-     if (email.equals(usuario.getEmail()) && senha.equals(usuario.getSenha())) {
-            return "Login efetuado com sucesso";
-        }
-        return "falha ao realizar o acesso";
-    }
     
     public Usuario cadastro(Usuario usuario) {
         return usuarioRepository.save(usuario);
