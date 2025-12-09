@@ -19,11 +19,6 @@ public class EnderecoController {
     @Autowired
     public EnderecoService enderecoService;
 
-    @PostMapping("/cadastro")
-    public Endereco cadastro(@RequestBody Endereco endereco) {
-        return enderecoService.cadastro(endereco);
-    }
-
     @GetMapping("/buscar/{id}")
     public Endereco buscar(@PathVariable Integer id) {
         return enderecoService.buscar(id);
