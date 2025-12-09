@@ -18,13 +18,6 @@ public class UsuarioService {
     }
     
 
-    public Usuario salvar(Usuario usuario, String confSenha) {
-        if(usuario.getSenha().equals(confSenha)) {
-            return usuarioRepository.save(usuario);
-        }
-        return null;
-    }
-
     public Usuario buscar(Integer id) {
             return usuarioRepository.findById(id).get();
     }
