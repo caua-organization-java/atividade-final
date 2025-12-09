@@ -25,12 +25,6 @@ public class UsuarioController {
         return usuarioService.cadastro(usuario);
     }
 
-    @PostMapping("/login")
-    public String login(@RequestParam String email, String senha) {
-        return usuarioService.login(email,senha);
-
-    }
-
     @GetMapping("/buscar/{id}")
     public Usuario buscarId(@PathVariable Integer id) {
         return usuarioService.buscar(id);
