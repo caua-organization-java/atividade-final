@@ -1,6 +1,7 @@
 package com.senai.br.infob.atividade_final.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,24 +17,31 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @RequestMapping("/endereco")
 public class EnderecoController {
 
-    @Autowired
     public EnderecoService enderecoService;
 
-    @PostMapping("/cadastro")
-    public Endereco cadastro(@RequestBody Endereco endereco) {
-        return enderecoService.cadastro(endereco);
+    // Cadastrar endereço para um usuário
+    @PostMapping("/usuario/{usuarioId}/cadastro")
+    public Endereco cadastrarEndereco(
+            @PathVariable Integer usuarioId,
+            @RequestBody Endereco endereco) {
+        return enderecoService.cadastrarEndereco(usuarioId, endereco);
     }
 
-    @GetMapping("/buscar/{id}")
-    public Endereco buscar(@PathVariable Integer id) {
-        return enderecoService.buscar(id);
+    // Listar todos
+    @GetMapping
+    public List<Endereco> listar() {
+        return enderecoService.listarEnderecos();
     }
 
-
-    @PostMapping("salvar")
-    public Endereco salvar(@RequestBody Endereco endereco) {
-        return enderecoService.salvar(endereco);
+    // Buscar por ID
+    @GetMapping("/{id}")
+    public Endereco buscarPorId(@PathVariable Integer id) {
+        return enderecoService.buscarPorId(id);
     }
 
-
+    // Listar endereços de um usuário
+    @GetMapping("/usuario/{usuarioId}")
+    public List<Endereco> listarPorUsuario(@PathVariable Integer usuarioId) {
+        return enderecoService.listarPorUsuario(usuarioId);
+    }
 }

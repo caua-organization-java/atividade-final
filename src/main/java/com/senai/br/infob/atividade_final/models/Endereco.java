@@ -27,17 +27,17 @@ public class Endereco {
     @Column(name="cep")
     private String cep;
 
-    @Column(name="número")
+    @Column(name="numero")
     private String numero;
 
     @Column(name="complemento")
     private String complemento;
 
-    @Column(name=" bairro")
+    @Column(name="bairro")
     private String bairro; 
 
-    @Column(name="referência")
-    private String referência;
+    @Column(name="referencia")
+    private String referencia;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -49,7 +49,7 @@ public class Endereco {
 
 
     public Endereco(Integer id, String logradouro, String localidade, String cep, String numero, String complemento,
-            String bairro, String referência, Usuario usuario) {
+            String bairro, String referencia, Usuario usuario) {
         this.id = id;
         this.logradouro = logradouro;
         this.localidade = localidade;
@@ -57,7 +57,7 @@ public class Endereco {
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
-        this.referência = referência;
+        this.referencia = referencia;
         this.usuario = usuario;
     }
 
@@ -132,13 +132,13 @@ public class Endereco {
     }
 
 
-    public String getReferência() {
-        return referência;
+    public String getReferencia() {
+        return referencia;
     }
 
 
-    public void setReferência(String referência) {
-        this.referência = referência;
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
     }
 
 

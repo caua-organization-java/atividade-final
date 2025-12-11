@@ -1,40 +1,47 @@
 package com.senai.br.infob.atividade_final.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
+import org.springframework.stereotype.Service;
 import com.senai.br.infob.atividade_final.models.Usuario;
 import com.senai.br.infob.atividade_final.repositories.UsuarioRepository;
 
 @Service
 public class UsuarioService {
 
-    @Autowired
     public UsuarioRepository usuarioRepository;
 
-    public String login(String email, String senha) {
-        Usuario usuario = usuarioRepository.findByEmail(email);
-     if (email.equals(usuario.getEmail()) && senha.equals(usuario.getSenha())) {
-            return "Login efetuado com sucesso";
+    // Cadastrar usuário (com ou sem endereços)
+    public Usuario cadastrarUsuario(Usuario usuario) {
+
+        if (usuario.getEnderecos() != null) {
+            usuario.getEnderecos().forEach(e -> e.setUsuario(usuario));
         }
-        return "falha ao realizar o acesso";
-    }
-    
-    public Usuario cadastro(Usuario usuario) {
+
         return usuarioRepository.save(usuario);
     }
-    
 
-    public Usuario salvar(Usuario usuario, String confSenha) {
-        if(usuario.getSenha().equals(confSenha)) {
-            return usuarioRepository.save(usuario);
+    // Login
+    public Usuario login(String email, String senha) {
+
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        if (!usuario.getSenha().equals(senha)) {
+            throw new RuntimeException("Senha incorreta");
         }
-        return null;
+
+        return usuario;
     }
 
-    public Usuario buscar(Integer id) {
-            return usuarioRepository.findById(id).get();
+    // Listar usuários
+    public List<Usuario> listarUsuarios() {
+        return usuarioRepository.findAll();
     }
 
-    
+    // Buscar usuário por ID	
+    public Usuario buscarPorId(Integer id) {
+        return usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    }
 }

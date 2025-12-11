@@ -1,6 +1,8 @@
 package com.senai.br.infob.atividade_final.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,27 +15,37 @@ import com.senai.br.infob.atividade_final.services.UsuarioService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
+
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    @Autowired
     public UsuarioService usuarioService;
 
+    // Cadastrar usuário
     @PostMapping("/cadastro")
-    public Usuario cadastro(@RequestBody Usuario usuario) {
-        return usuarioService.cadastro(usuario);
+    public Usuario cadastrar(@RequestBody Usuario usuario) {
+        return usuarioService.cadastrarUsuario(usuario);
     }
 
+    // Login
     @PostMapping("/login")
-    public String login(@RequestParam String email, String senha) {
-        return usuarioService.login(email,senha);
-
+    public Usuario login(
+            @RequestParam String email,
+            @RequestParam String senha
+    ) {
+        return usuarioService.login(email, senha);
     }
 
-    @GetMapping("/buscar/{id}")
-    public Usuario buscarId(@PathVariable Integer id) {
-        return usuarioService.buscar(id);
-        
+    // Listar todos
+    @GetMapping
+    public List<Usuario> listar() {
+        return usuarioService.listarUsuarios();
+    }
+
+    // Buscar por ID
+    @GetMapping("/{id}")
+    public Usuario buscarPorId(@PathVariable Integer id) {
+        return usuarioService.buscarPorId(id);
     }
 }
