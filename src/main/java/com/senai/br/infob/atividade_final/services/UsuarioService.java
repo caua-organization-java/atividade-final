@@ -2,7 +2,7 @@ package com.senai.br.infob.atividade_final.services;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.senai.br.infob.atividade_final.models.Usuario;
 import com.senai.br.infob.atividade_final.repositories.UsuarioRepository;
@@ -10,6 +10,7 @@ import com.senai.br.infob.atividade_final.repositories.UsuarioRepository;
 @Service
 public class UsuarioService {
 
+    @Autowired
     public UsuarioRepository usuarioRepository;
 
     // Cadastrar usuário (com ou sem endereços)
