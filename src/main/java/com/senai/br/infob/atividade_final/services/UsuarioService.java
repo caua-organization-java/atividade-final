@@ -16,6 +16,18 @@ public class UsuarioService {
     public Usuario cadastro(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
+
+    public String login(String email, String senha) {
+        Usuario usuario = usuarioRepository.findByEmail(email);
+        if (usuario == null) {
+            return "Usuário não encontrado";
+    }
+        if (!usuario.getSenha().equals(senha)) {
+            return "Senha incorreta";
+    }
+        return "Login efetuado com sucesso";
+    }
+
     
 
     public Usuario buscar(Integer id) {
