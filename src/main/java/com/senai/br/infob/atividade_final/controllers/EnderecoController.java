@@ -41,8 +41,8 @@ public class EnderecoController {
     }
 
     // Listar endereços de um usuário
-    @GetMapping("/usuario/{usuarioId}")
-    public List<Endereco> listarPorUsuario(@PathVariable Integer usuarioId) {
-        return enderecoService.listarPorUsuario(usuarioId);
-    }
+    // @GetMapping("/usuario/{usuarioId}")
+    // public List<Endereco> listarPorUsuario(@PathVariable Integer usuarioId) {
+    //     return enderecoService.listarPorUsuario(usuarioId);
+    // }
 }

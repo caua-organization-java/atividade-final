@@ -38,21 +38,20 @@ public class Usuario {
     @Column(name="data_nascimento")
     private LocalDate dataNascimento;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Endereco> enderecos;
+    // @OneToMany(mappedBy = "usuario")
+    // private List<Endereco> enderecos;
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nome, String email, String senha, String cpf, LocalDate dataNascimento,
-            List<Endereco> enderecos) {
+    public Usuario(Integer id, String nome, String email, String senha, String cpf, LocalDate dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
-        this.enderecos = enderecos;
+        // this.enderecos = enderecos;
     }
 
     public Integer getId() {
@@ -103,13 +102,13 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public List<Endereco> getEnderecos() {
-        return enderecos;
-    }
+    // public List<Endereco> getEnderecos() {
+    //     return enderecos;
+    // }
 
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
-    }
+    // public void setEnderecos(List<Endereco> enderecos) {
+    //     this.enderecos = enderecos;
+    // }
 
     
 }

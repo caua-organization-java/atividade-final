@@ -16,9 +16,9 @@ public class UsuarioService {
     // Cadastrar usuário (com ou sem endereços)
     public Usuario cadastrarUsuario(Usuario usuario) {
 
-        if (usuario.getEnderecos() != null) {
-            usuario.getEnderecos().forEach(e -> e.setUsuario(usuario));
-        }
+        // if (usuario.getEnderecos() != null) {
+        //     usuario.getEnderecos().forEach(e -> e.setUsuario(usuario));
+        // }
 
         return usuarioRepository.save(usuario);
     }

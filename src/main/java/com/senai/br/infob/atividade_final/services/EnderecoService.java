@@ -41,12 +41,12 @@ public class EnderecoService {
     }
 
     // Listar endereços por usuário
-    public List<Endereco> listarPorUsuario(Integer usuarioId) {
+    // public List<Endereco> listarPorUsuario(Integer usuarioId) {
 
-        Usuario usuario = usuarioRepository.findById(usuarioId)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    //     Usuario usuario = usuarioRepository.findById(usuarioId)
+    //             .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-        return usuario.getEnderecos();
-    }
+    //     return usuario.getEnderecos();
+    // }
 }
 
